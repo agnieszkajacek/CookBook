@@ -1,31 +1,53 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>CookBook</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<div class="container">
-<div class="row">
-  <div class="col-md-2">
-  	<ul class="nav nav-pills nav-stacked">
-  		<li role="presentation" class="dropdown">
-    		<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-      		Menu <span class="caret"></span>
-    		</a>
-    <ul class="dropdown-menu">
-      <% Category.all.each do |category| %>
-      	<li><%= link_to category.name, category %></li>
-      	<% end %>
-    </ul>
-  </li>
-	</ul>
-  </div>
-  <div class="col-md-10"><%= yield %></div>
-</div>
-
-
-</body>
+  <head>
+    <title>CookBook</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2">
+          <ul class="nav nav-pills nav-stacked">
+            <li role="presentation" class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                Menu <span class="caret"></span>
+              </a>
+              
+              <ul class="dropdown-menu">
+                <% Category.all.each do |category| %>
+                <li><%= link_to category.name, category %></li>
+                <% end %>
+              </ul>
+          <li role="presentation"><a href="#">Ulubione przepisy</a></li>
+          </ul> 
+        </div>
+      
+        <div class="col-md-10">
+          <ul class="nav nav-pills navbar-right">
+            <li role="presentation"><a href="#">Zaloguj się</a></li>
+            <li role="presentation"><a href="#">Załóż konto</a></li>
+           </ul>
+        </div>
+      </div>
+    
+      <div class="row">
+        <div class="col-md-4">
+          <form>
+            <div class="form-group has-feedback">
+              <input placeholder="Wyszukaj przepis..." type="text" class="form-control" id="inputSuccess2" aria-describedby="inputSuccess2Status">
+              <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+            </div>
+           </form>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-3 col-md-offset-9"><%= yield %></div>
+      </div>
+        
+    </div>
+  </body>
 </html>

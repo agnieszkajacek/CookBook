@@ -1,0 +1,7 @@
+<p>Witaj <%= @resource.email %>!</p>
+
+<p>Twoje konto zostało zablokowane z powodu zbyt dużej liczby nieudanych prób logowania.</p>
+
+<p>Kliknij w link poniżej, aby odblokowac konto:</p>
+
+<p><%= link_to 'Odblokuj moje konot', unlock_url(@resource, unlock_token: @token) %></p>

@@ -1,0 +1,21 @@
+pl:
+  activerecord:
+    models:
+      user: "Użytkownik"
+    attributes:
+      user:
+        password: "Hasło"
+
+  helpers:
+    label:
+      user:
+        email: "Twój e-mail"
+        password: "Hasło"
+        password_confirmation: "Potwierdź hasło"
+        current_password: "Aktualne hasło"
+        remember_me: "Zapamiętaj mnie"
+
+    submit:
+      user:
+        create: "Zarejestruj"
+        update: "Zmień dane"

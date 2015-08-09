@@ -29,6 +29,7 @@
           <ul class="nav nav-pills navbar-right">
             <li role="presentation"><a href="#">Zaloguj się</a></li>
             <li role="presentation"><a href="#">Załóż konto</a></li>
+            <li><%= link_to "Dodaj przepis", new_recipe_path %></li>
            </ul>
         </div>
       </div>
@@ -45,7 +46,7 @@
       </div>
       
       <div class="row">
-        <div class="col-md-3 col-md-offset-9"><%= yield %></div>
+        <div class="col-md-12"><%= yield %></div>
       </div>
         
     </div>

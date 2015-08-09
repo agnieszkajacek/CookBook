@@ -24,12 +24,17 @@ class RecipesController < ApplicationController
   # POST /recipes
   # POST /recipes.json
   def create
-    @recipe = Recipe.new(recipe_params)
+    url=recipe_params[:url]
+    if url.include? "kuhnialidla.pl"
+      downloader=LidlDownloader.new(url)
+    elsif url.include? "kwestiasmaku.com"
+      downloader=KwestiaSmakuDownloader.new(url)  
+    end
 
     respond_to do |format|
-      if @recipe.save
-        format.html { redirect_to @recipe, notice: 'Recipe was successfully created.' }
-        format.json { render :show, status: :created, location: @recipe }
+      if downloader.zapisz
+        format.html { redirect_to recipes_path, notice: 'Recipe was successfully created.' }
+        format.json { render :show, status: :created, location: recipes_path }
       else
         format.html { render :new }
         format.json { render json: @recipe.errors, status: :unprocessable_entity }
@@ -69,6 +74,6 @@ class RecipesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
-      params.require(:recipe).permit(:title, :ingredients, :description)
+      params.require(:recipe).permit(:title, :ingredients, :description, :url)
     end
 end

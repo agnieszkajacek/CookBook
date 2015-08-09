@@ -3,7 +3,7 @@
   <head>
     <title>CookBook</title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
   </head>
   <body>
@@ -15,25 +15,32 @@
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                 Menu <span class="caret"></span>
               </a>
-              
+
               <ul class="dropdown-menu">
                 <% Category.all.each do |category| %>
                 <li><%= link_to category.name, category %></li>
                 <% end %>
               </ul>
           <li role="presentation"><a href="#">Ulubione przepisy</a></li>
-          </ul> 
+          </ul>
         </div>
-      
+
         <div class="col-md-10">
-          <ul class="nav nav-pills navbar-right">
-            <li role="presentation"><a href="#">Zaloguj się</a></li>
-            <li role="presentation"><a href="#">Załóż konto</a></li>
-            <li><%= link_to "Dodaj przepis", new_recipe_path %></li>
-           </ul>
+          <p class="navbar-text pull-right">
+      <% if user_signed_in? %>
+        Zalogowany jako <strong><%= current_user.email %></strong>.
+        <%= link_to 'Edytuj profil', edit_user_registration_path, :class => 'navbar-link' %> |
+        <%= link_to "Wyloguj się", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %> |
+        <%= link_to "Dodaj przepis", new_recipe_path %> 
+      <% else %>
+        <%= link_to "Załóż konto", new_user_registration_path, :class => 'navbar-link'  %> |
+        <%= link_to "Zaloguj się", new_user_session_path, :class => 'navbar-link'  %>
+      <% end %>
         </div>
       </div>
-    
+
+
+
       <div class="row">
         <div class="col-md-4">
           <form>
@@ -44,11 +51,18 @@
            </form>
         </div>
       </div>
-      
+
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
+
       <div class="row">
         <div class="col-md-12"><%= yield %></div>
       </div>
-        
+
     </div>
   </body>
 </html>

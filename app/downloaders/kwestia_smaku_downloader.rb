@@ -8,6 +8,7 @@ class KwestiaSmakuDownloader
     @tytul = page.css('h1.przepis.page-header').text
     @opis = page.css('.group-przepis.field-group-div').text
     @skladniki = []
+    @obrazek = page.css('div.field.field-name-zdjecie-z-linikem-do-bloga.field-type-ds.field-label-hidden img')[0]['src']
     @url=url
     
     page.css('div.group-skladniki.field-group-div li').each do |skladnik|
@@ -30,9 +31,13 @@ class KwestiaSmakuDownloader
   def url
     @url
   end
+
+  def obrazek
+    @obrazek
+  end
   
-  def zapisz
-    Recipe.create(title: tytul, ingredients: skladniki, description: opis, url: url)
+  def przepis
+    Recipe.new(title: tytul, ingredients: skladniki, description: opis, url: url, image: obrazek)
   end
 end
 

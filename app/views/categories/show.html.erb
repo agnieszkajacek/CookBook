@@ -1,0 +1,34 @@
+<h1><%= @category.name %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @recipes.each do |recipe| %>
+      <tr>
+      <table>
+        <td><%= recipe.title %></td>
+        <td><%= link_to 'Pokaż', recipe %></td>
+        <td>
+          <% if current_user.favourites.where(recipe_id: recipe.id).none? %>
+            <%= link_to 'Dodaj do ulubionych', add_to_favourites_path(recipe.id), method: :post %>
+          <% end %>
+        </td>
+        <td><% link_to 'Edytuj', edit_recipe_path(recipe) %></td>
+        <% if  user_signed_in? && current_user.admin == true%>
+        <td><%= link_to 'Usuń', recipe, method: :delete, data: { confirm: 'Jesteś pewien?' } %></td>
+        <% end %>
+      </table>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

@@ -12,10 +12,15 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :url %><br>
+    Adres:
     <%= f.text_field :url %>
   </div>
+  <div class="field">
+  Kategoria:
+     <%= f.select :category_id, Category.all.collect { |p| [ p.name, p.id ] }, include_blank: false %>
+  </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Utwórz przepis" %>
   </div>
 <% end %>

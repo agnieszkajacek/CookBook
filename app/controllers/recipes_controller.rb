@@ -1,4 +1,6 @@
 class RecipesController < ApplicationController
+  before_filter :authenticate_user!, only: [:new, :update, :edit, :create, :destroy]
+  before_filter :check_admin, except: [:show, :index] 
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
 
   # GET /recipes
@@ -25,15 +27,16 @@ class RecipesController < ApplicationController
   # POST /recipes.json
   def create
     url=recipe_params[:url]
-    if url.include? "kuhnialidla.pl"
-      downloader=LidlDownloader.new(url)
+    if url.include? "kuchnialidla.pl"
+      @recipe=LidlDownloader.new(url).przepis
     elsif url.include? "kwestiasmaku.com"
-      downloader=KwestiaSmakuDownloader.new(url)  
+      @recipe=KwestiaSmakuDownloader.new(url).przepis  
     end
+    @recipe.category_id=params[:recipe][:category_id]
 
     respond_to do |format|
-      if downloader.zapisz
-        format.html { redirect_to recipes_path, notice: 'Recipe was successfully created.' }
+      if @recipe.save
+        format.html { redirect_to recipes_path, notice: 'Przepis został poprawnie dodany.' }
         format.json { render :show, status: :created, location: recipes_path }
       else
         format.html { render :new }
@@ -59,11 +62,11 @@ class RecipesController < ApplicationController
   # DELETE /recipes/1
   # DELETE /recipes/1.json
   def destroy
-    @recipe.destroy
-    respond_to do |format|
-      format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+      @recipe.destroy
+        respond_to do |format|
+        format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }
+        format.json { head :no_content }
+      end
   end
 
   private
@@ -74,6 +77,6 @@ class RecipesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
-      params.require(:recipe).permit(:title, :ingredients, :description, :url)
+      params.require(:recipe).permit(:title, :ingredients, :description, :url, :category_id)
     end
 end

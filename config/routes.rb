@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   resources :categories
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-  
+  get '/favourites' => 'favourites#index'
+  delete '/favourites/:id' => 'favourites#destroy', as: :destroy_favourite
+  post '/favourites/:id' => 'favourites#create', as: :add_to_favourites
   # You can have the root of your site routed with "root"
   root 'recipes#index'
 

@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 ruby "2.2.2"
-
+gem 'kaminari'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
 # Use sqlite3 as the database for Active Record
@@ -31,7 +31,6 @@ gem 'bootstrap-sass', '~> 3.3.5'
 # Use Unicorn as the app server
 # gem 'unicorn'
 gem 'devise'
-gem 'devise-i18n'
 gem 'rails-i18n', '~> 4.0.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

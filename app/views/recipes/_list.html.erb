@@ -1,0 +1,24 @@
+<% recipes.each_slice(3) do |slice| %>
+  <div class="row">
+    <% slice.each do |recipe| %>
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <%= image_tag recipe.image %>
+          <div class="caption">
+            <h3><%= recipe.title %></h3>
+              <p>
+                <%= link_to 'Pokaż', recipe, class: "btn btn-primary" %>
+                  <% if user_signed_in? && current_user.favourites.where(recipe_id: recipe.id).none? %>
+                    <%= link_to 'Dodaj do ulubionych', add_to_favourites_path(recipe.id), method: :post, class: "btn btn-primary"%>
+                  <% end %>
+                  <% if  user_signed_in? && current_user.admin == true%>
+                    <% link_to 'Edytuj', edit_recipe_path(recipe), class: "btn btn-primary" %>
+                    <%= link_to 'Usuń', recipe, method: :delete, data: { confirm: 'Jesteś pewien?' }, class: "btn btn-primary" %>
+                  <% end %>
+              </p>  
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %> 

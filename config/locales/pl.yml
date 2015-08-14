@@ -1,10 +1,30 @@
 pl:
+  devise:
+    failure:
+      unauthenticated: 'Musisz się zalogować lub zarejestrować się przed kontynuowaniem.'
+      unconfirmed: 'Musisz potwierdzić swoje konto przed kontynuowaniem.'
+      locked: 'Twoje konto jest zablokowane.'
+      invalid: 'Konto bądź email jest nieważne.'
+      invalid_token: 'Nieprawidłowy tokenu uwierzytelniania.'
+      timeout: 'Twoja sesja wygasła, zaloguj się ponownie, aby kontynuować.'
+      inactive: 'Twoje konto nie zostało jeszcze aktywowane.'
+    sessions:
+      signed_in: "Zalogowano poprawnie"
+      signed_out: "Wylogowano poprawnie"
+
+  views:
+    pagination:
+      previous: "Poprzednia"
+      next: "Następna"
+      last: "Ostatnia"
+      first: "Pierwsza"
+      
   activerecord:
     models:
       user: "Użytkownik"
-    attributes:
+      attributes:
       user:
-        password: "Hasło"
+      password: "Hasło"
 
   helpers:
     label:
@@ -14,8 +34,11 @@ pl:
         password_confirmation: "Potwierdź hasło"
         current_password: "Aktualne hasło"
         remember_me: "Zapamiętaj mnie"
-
-    submit:
-      user:
-        create: "Zarejestruj"
-        update: "Zmień dane"
+        
+  submit:
+    user:
+      create: "Zarejestruj"
+      update: "Zmień dane"
+   
+        
+    

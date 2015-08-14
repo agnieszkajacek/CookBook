@@ -6,7 +6,12 @@ class RecipesController < ApplicationController
   # GET /recipes
   # GET /recipes.json
   def index
-    @recipes = Recipe.all
+    if params[:search]
+      @recipes = Recipe.search(params[:search]).order("created_at DESC").page(params[:page]).per(9)
+    else
+      @recipes = Recipe.order("created_at DESC").page(params[:page]).per(9)
+    end
+    
   end
 
   # GET /recipes/1
@@ -68,6 +73,8 @@ class RecipesController < ApplicationController
         format.json { head :no_content }
       end
   end
+  
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.

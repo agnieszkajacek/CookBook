@@ -1,7 +1,7 @@
 class FavouritesController < ApplicationController
 	before_filter :authenticate_user!
 	def index
-		@recipes=current_user.recipes
+		@recipes=current_user.recipes.page(params[:page]).per(9)
 	end
 	def destroy
 		current_user.favourites.where(recipe_id: params[:id]).destroy_all

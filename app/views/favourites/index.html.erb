@@ -1,27 +1,4 @@
 
 <h1>Ulubione</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @recipes.each do |recipe| %>
-      <tr>
-      <table>
-        <td><%= recipe.title %></td>
-        <td><%= link_to 'Pokaż', recipe %></td>
-        <td><%= link_to 'Usuń', destroy_favourite_path(recipe.id), method: :delete, data: { confirm: 'Jesteś pewien?' } %></td>
-      </table>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+<%= render partial: 'recipes/list', locals: { recipes: @recipes } %>

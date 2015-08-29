@@ -4,25 +4,32 @@
   <h1><%= @recipe.title %></h1>
 </p>
 <div class="row">
-	<div class="col-md-4">
-		<p>
-		  <strong>Składniki:</strong>
-		  <% @recipe.ingredients.split(";").each do |s| %>
-		  <li><%= s %></li>
-		  <% end %>
-		</p>
+  <div class="col-md-4">
+    <h2>Składniki</h2>
+  </div>
+</div>
+<div class="row">
+	<div class="col-md-4 skladniki">
+		<%= simple_format @recipe.ingredients %>
 	</div>
 	<div class="col-md-8">
 		<%=image_tag @recipe.image %>
-	</div>		
+	</div>
 </div>
-<hr><p>
+<hr>
+<h2>Przygotowanie</h2><br />
+<div class="tresc-przepisu">
   <%= simple_format(@recipe.description) %>
-</p>
+</div>
 
 <p>
   <strong>Autor:</strong>
   <%= link_to @recipe.url, @recipe.url, target:"_blank" %>
 </p>
-<a class="hidden-print" href="#" onclick="window.print();return false;">Drukuj przepis</a> 
+
+
+<a class="hidden-print btn btn-default" href="#" onclick="window.print();return false;">Drukuj przepis</a>
+
+<%= link_to 'Wróć', recipes_path, :class => 'btn btn-default' %>
+
 

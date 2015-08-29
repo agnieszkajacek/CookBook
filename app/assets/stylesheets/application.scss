@@ -18,3 +18,26 @@
 table td{
 	padding: 10px;
 }
+
+.skladniki, .tresc-przepisu {
+  br {
+    display: none;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+}
+
+body {
+  background-color: #FFFFE0;
+}
+
+a {
+  color: #333;
+}
+
+.btn-default{
+  color: #333;
+}
+

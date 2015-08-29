@@ -4,26 +4,22 @@ require 'open-uri'
 
 class LidlDownloader
   def initialize(url)
-    page       = Nokogiri::HTML(open(url))    
+    page       = Nokogiri::HTML(open(url))
     @tytul     = page.css('h1').text
-    @opis      = page.css('div.recipe_steps').text
-    @skladniki = []
+    @opis      = page.css('div.recipe_steps').inner_html
     @url       = url
     @obrazek   = page.css('div.image img')[0]['src']
-    
-    page.css('div.recipe_products li').each do |skladnik|
-     @skladniki << skladnik.text
-    end      
+    @skladniki = page.css('div.recipe_products').inner_html
   end
-  
-  def tytul 
+
+  def tytul
     @tytul
   end
-  
+
   def skladniki
-    @skladniki.join(";")
+    @skladniki
   end
-  
+
   def opis
     @opis
     end
@@ -35,7 +31,7 @@ class LidlDownloader
   def obrazek
     @obrazek
   end
-  
+
   def przepis
     Recipe.new(title: tytul, ingredients: skladniki, description: opis, url: url, image: obrazek)
   end

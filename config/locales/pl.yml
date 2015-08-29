@@ -1,5 +1,9 @@
 pl:
   devise:
+    registrations:
+      user:
+        signed_in: "Zalogowano poprawnie"
+        destroyed: "Usunięto konto"
     failure:
       unauthenticated: 'Musisz się zalogować lub zarejestrować się przed kontynuowaniem.'
       unconfirmed: 'Musisz potwierdzić swoje konto przed kontynuowaniem.'
@@ -18,13 +22,15 @@ pl:
       next: "Następna"
       last: "Ostatnia"
       first: "Pierwsza"
-      
+
   activerecord:
     models:
       user: "Użytkownik"
-      attributes:
+    attributes:
       user:
-      password: "Hasło"
+        password: "Hasło"
+        password_confirmation: "Pole potwierdzające hasło"
+        current_password: "Aktualne hasło"
 
   helpers:
     label:
@@ -34,11 +40,16 @@ pl:
         password_confirmation: "Potwierdź hasło"
         current_password: "Aktualne hasło"
         remember_me: "Zapamiętaj mnie"
-        
+
   submit:
     user:
       create: "Zarejestruj"
       update: "Zmień dane"
-   
-        
-    
+
+  errors:
+    messages:
+      not_saved: "Wprowadzono błędne dane"
+
+
+
+

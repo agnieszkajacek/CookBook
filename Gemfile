@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-ruby "2.2.2"
 gem 'kaminari'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
@@ -49,6 +48,5 @@ end
 
 group :production do
   gem "pg"
-  gem "thin"
 end
 

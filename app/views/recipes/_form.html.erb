@@ -11,16 +11,20 @@
     </div>
   <% end %>
 
-  <div class="field">
-    Adres:
-    <%= f.text_field :url %>
+  <div class="row">
+    <div class="form-group col-xs-4">
+      Adres:
+      <%= f.text_field :url, class: 'form-control' %>
+    </div>
   </div>
-  <div class="field">
-  Kategoria:
-     <%= f.select :category_id, Category.all.collect { |p| [ p.name, p.id ] }, include_blank: false %>
+  <div class="row">
+    <div class="form-group col-xs-4">
+    Kategoria:
+       <%= f.select :category_id, Category.all.collect { |p| [ p.name, p.id ] }, {include_blank: false}, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Utwórz przepis" %>
-  </div>
+    <div class="actions">
+      <%= f.submit "Utwórz przepis", class: 'btn btn-default' %>
+    </div>
 <% end %>

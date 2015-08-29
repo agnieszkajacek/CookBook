@@ -14,3 +14,7 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require_tree .
+
+$(function() {
+  $('.tresc-przepisu h3:contains("Przygotowanie")').remove()
+});

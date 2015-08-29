@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   before_filter :authenticate_user!, only: [:new, :update, :edit, :create, :destroy]
-  before_filter :check_admin, except: [:show, :index] 
+  before_filter :check_admin, except: [:show, :index]
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
 
   # GET /recipes
@@ -11,7 +11,7 @@ class RecipesController < ApplicationController
     else
       @recipes = Recipe.order("created_at DESC").page(params[:page]).per(9)
     end
-    
+
   end
 
   # GET /recipes/1
@@ -35,7 +35,10 @@ class RecipesController < ApplicationController
     if url.include? "kuchnialidla.pl"
       @recipe=LidlDownloader.new(url).przepis
     elsif url.include? "kwestiasmaku.com"
-      @recipe=KwestiaSmakuDownloader.new(url).przepis  
+      @recipe=KwestiaSmakuDownloader.new(url).przepis
+    elsif url.include? "tesco.pl"
+      @recipe=TescoDownloader.new(url).przepis
+
     end
     @recipe.category_id=params[:recipe][:category_id]
 
@@ -73,8 +76,8 @@ class RecipesController < ApplicationController
         format.json { head :no_content }
       end
   end
-  
-  
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

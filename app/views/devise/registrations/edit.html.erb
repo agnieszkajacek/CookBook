@@ -2,38 +2,46 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
-
-  <div class="field">
+<div class="row">
+  <div class="form-group col-xs-5">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email, autofocus: true, class: 'form-control' %>
   </div>
+</div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(Zostaw puste, jesli nie chcesz dokonywac zmian)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+<div class="row">
+  <div class="form-group col-xs-5">
+    <%= f.label :password %> <i>(Zostaw puste, jesli nie chcesz dokonywać zmian)</i><br />
+    <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+<div class="row">
+  <div class="form-group col-xs-5">
+    <%= f.label :password_confirmation %><br/>
+    <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'%>
   </div>
+</div>
 
-  <div class="field">
+ <div class="row">
+  <div class="form-group col-xs-5">
     <%= f.label :current_password %> <i>(Potrzebujemy Twojego obecnego hasła, do potwierdzenia zmian)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
+    <%= f.password_field :current_password, autocomplete: "off", class: 'form-control' %>
   </div>
+</div>
+
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Aktualizuj", class: 'btn btn-primary' %>
   </div>
-<% end %>
+<% end %><br />
 
-<h3>Zamknij moje konto</h3>
+<h4>Zamknij moje konto</h4>
 
-<p>Niezadowolony? <%= button_to "Zamknij moje konto", registration_path(resource_name), data: { confirm: "Jesteś pewien?" }, method: :delete %></p>
+<p>Niezadowolony?<br />
+<%= link_to "Zamknij moje konto", registration_path(resource_name), data: { confirm: "Jesteś pewien?" }, method: :delete, class: 'btn btn-danger'%><p>
 
-<%= link_to "Wróć", :back %>
+<%= link_to "Wróć", :back, class: 'btn btn-info' %>

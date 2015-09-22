@@ -17,4 +17,5 @@
 
 $(function() {
   $('.tresc-przepisu h3:contains("Przygotowanie")').remove()
+  $('.skladniki h3:contains("Składniki")').remove()
 });

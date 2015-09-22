@@ -2,12 +2,12 @@
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= devise_error_messages! %>
-
-  <div class="form-group">
+<div class="row">
+  <div class="form-group col-xs-5">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, class: 'form-control' %>
   </div>
-
+</div>
   <div class="actions">
     <%= f.submit "Wyslij mi instrukcje, aby zresetować hasło.", class: 'btn btn-default' %>
   </div>

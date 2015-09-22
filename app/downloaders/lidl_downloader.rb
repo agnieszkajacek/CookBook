@@ -6,10 +6,10 @@ class LidlDownloader
   def initialize(url)
     page       = Nokogiri::HTML(open(url))
     @tytul     = page.css('h1').text
-    @opis      = page.css('div.recipe_steps').inner_html
+    @opis      = page.css('div.recipe_main .article').inner_html
     @url       = url
-    @obrazek   = page.css('div.image img')[0]['src']
-    @skladniki = page.css('div.recipe_products').inner_html
+    @obrazek   = page.css('div.recipe_main img.watermark')[0]['src']
+    @skladniki = page.css('div.skladniki').inner_html
   end
 
   def tytul

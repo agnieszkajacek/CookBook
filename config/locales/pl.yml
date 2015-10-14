@@ -1,9 +1,14 @@
 pl:
   devise:
+    omniauth_callbacks:
+      user:
+        success: "Zalogowano poprawnie"
     registrations:
       user:
+        signed_up: "Zarejestrowano poprawnie"
         signed_in: "Zalogowano poprawnie"
         destroyed: "Usunięto konto"
+        updated: "Dane zostały poprawnie zmienione"
     failure:
       unauthenticated: 'Musisz się zalogować lub zarejestrować się przed kontynuowaniem.'
       unconfirmed: 'Musisz potwierdzić swoje konto przed kontynuowaniem.'

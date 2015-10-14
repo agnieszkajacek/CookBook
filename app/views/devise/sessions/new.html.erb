@@ -28,7 +28,16 @@
 
   <div class="actions">
     <%= f.submit "Zaloguj się", class: 'btn btn-default' %>
+    <%= link_to omniauth_authorize_path(resource_name, "facebook"), class: 'btn btn-default' do %>
+      <%= fa_icon "facebook-official" %> Zaloguj z Facebook
+    <% end %>
+    <%= link_to omniauth_authorize_path(resource_name, "github"), class: 'btn btn-default' do %>
+      <%= fa_icon "github" %> Zaloguj z GitHub
+    <% end %>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+
+

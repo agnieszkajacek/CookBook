@@ -15,6 +15,7 @@ Devise.setup do |config|
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
   config.omniauth :facebook, "723160231162405", "3916d70fadc7e1a082bd0130c36721ff", scope: 'email', info_fields: 'email, name'
   config.omniauth :github,  "4b897449cf22a8ffc7c5", "3d11ab8c6ac3fbd42207c7ec6e2ae320142df478", scope: "user,repo,gist"
+  config.omniauth :google_oauth2, "cookbook-1101", "264152700276", { access_type: "offline", approval_prompt: "" }
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
 

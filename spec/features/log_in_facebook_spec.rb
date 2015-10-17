@@ -18,10 +18,12 @@ describe "log in facebook" , type: :feature do
 
 	it "conect user to facebook account" do
 		user = User.create!(email: 'agnieszka.jacek90@gmail.com', password: 'agnieszka')
+		expect(user.providers.count).to eq(0)
 		click_link'Zaloguj z Facebook'
-		user.reload
-		expect(user.provider).to eq ("facebook")
-		expect(user.uid).to eq("1053460708021024")
+		expect(user.providers.count).to eq(1)
+		provider = user.providers.last
+		expect(provider.uid).to eq("1053460708021024")
+		expect(provider.name).to eq("facebook")
 	end
 
 end

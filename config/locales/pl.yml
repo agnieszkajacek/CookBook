@@ -3,6 +3,7 @@ pl:
     omniauth_callbacks:
       user:
         success: "Zalogowano poprawnie"
+        failure: "Nie udało się zalogować"
     registrations:
       user:
         signed_up: "Zarejestrowano poprawnie"

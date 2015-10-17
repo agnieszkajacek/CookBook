@@ -13,9 +13,9 @@ Devise.setup do |config|
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
-  config.omniauth :facebook, "723160231162405", "3916d70fadc7e1a082bd0130c36721ff", scope: 'email', info_fields: 'email, name'
-  config.omniauth :github,  "4b897449cf22a8ffc7c5", "3d11ab8c6ac3fbd42207c7ec6e2ae320142df478", scope: "user,repo,gist"
-  config.omniauth :google_oauth2, "cookbook-1101", "264152700276", { access_type: "offline", approval_prompt: "" }
+  config.omniauth :facebook, Rails.application.secrets.facebook_id, Rails.application.secrets.facebook_secret, scope: 'email', info_fields: 'email, name'
+  config.omniauth :github,  Rails.application.secrets.github_id, Rails.application.secrets.github_secret, scope: "user,repo,gist"
+  config.omniauth :google_oauth2, "264152700276-7s56t8qcs39jtkk8i7a37e3krmbhm5rc.apps.googleusercontent.com", "mWKYeW62x3zzJ1cWKTu4a6__", provider: { scope: "email,profile" }
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
 

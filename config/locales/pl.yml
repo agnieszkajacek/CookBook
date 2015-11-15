@@ -33,10 +33,13 @@ pl:
     models:
       user: "Użytkownik"
     attributes:
+      recipe:
+        title: "Pole tytuł"
       user:
         password: "Hasło"
         password_confirmation: "Pole potwierdzające hasło"
         current_password: "Aktualne hasło"
+
 
   helpers:
     label:

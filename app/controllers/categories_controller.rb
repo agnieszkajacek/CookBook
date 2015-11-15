@@ -3,4 +3,9 @@ class CategoriesController < ApplicationController
 		@category=Category.find(params[:id])
 		@recipes=@category.recipes.page(params[:page]).per(9)
 	end
+
+  def index
+    @categories = Category.all
+    render json: @categories
+  end
 end

@@ -120,6 +120,7 @@ GEM
       multi_json (~> 1.3)
       multi_xml (~> 0.5)
       rack (~> 1.2)
+    oj (2.12.14)
     omniauth (1.2.2)
       hashie (>= 1.2, < 4)
       rack (~> 1.0)
@@ -181,6 +182,8 @@ GEM
     ref (2.0.0)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
+    rollbar (2.4.0)
+      multi_json
     rspec-core (3.3.2)
       rspec-support (~> 3.3.0)
     rspec-expectations (3.3.1)
@@ -262,6 +265,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   kaminari
+  oj (~> 2.12.14)
   omniauth-facebook
   omniauth-github
   omniauth-google-oauth2
@@ -269,6 +273,7 @@ DEPENDENCIES
   pry
   rails (= 4.2.3)
   rails-i18n (~> 4.0.0)
+  rollbar (~> 2.4.0)
   rspec-rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

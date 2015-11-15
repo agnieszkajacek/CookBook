@@ -24,6 +24,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'omniauth-facebook'
 gem 'omniauth-github'
 gem "omniauth-google-oauth2"
+gem 'rollbar', '~> 2.4.0'
+gem 'oj', '~> 2.12.14'
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 # Use ActiveModel has_secure_password

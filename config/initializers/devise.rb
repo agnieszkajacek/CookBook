@@ -12,7 +12,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender = 'księga.najlepszych.przepisow@gmail.com'
   config.omniauth :facebook, Rails.application.secrets.facebook_id, Rails.application.secrets.facebook_secret, scope: 'email', info_fields: 'email, name'
   config.omniauth :github,  Rails.application.secrets.github_id, Rails.application.secrets.github_secret, scope: "user,repo,gist"
   config.omniauth :google_oauth2, "264152700276-7s56t8qcs39jtkk8i7a37e3krmbhm5rc.apps.googleusercontent.com", "mWKYeW62x3zzJ1cWKTu4a6__", provider: { scope: "email,profile" }

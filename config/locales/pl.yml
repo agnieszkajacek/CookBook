@@ -1,5 +1,9 @@
 pl:
   devise:
+    passwords:
+      user:
+        send_instructions: "Na podany adres wysłano link adres z przypomnieniem hasła"
+        updated: "Hasło zostało zmienione"
     omniauth_callbacks:
       user:
         success: "Zalogowano poprawnie"

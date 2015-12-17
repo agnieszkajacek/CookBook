@@ -20,7 +20,7 @@
   <div class="row">
     <div class="form-group col-xs-4">
     Kategoria:
-       <%= f.select :category_id, Category.all.collect { |p| [ p.name, p.id ] }, {include_blank: false}, class: 'form-control' %>
+       <%= f.select :category_id, Category.order("name").collect { |p| [ p.name, p.id ] }, {include_blank: false}, class: 'form-control' %>
     </div>
   </div>
 

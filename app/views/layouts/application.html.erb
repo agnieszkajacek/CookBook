@@ -16,7 +16,7 @@
 
 
               <ul class="dropdown-menu">
-                <% Category.all.each do |category| %>
+                <% Category.order("name").each do |category| %>
                 <li><%= link_to "#{category.name} (#{category.recipes.count})", category %></li>
                 <% end %>
               </ul>

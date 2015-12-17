@@ -36,10 +36,10 @@ class RecipesController < ApplicationController
       @recipe=LidlDownloader.new(url).przepis
     elsif url.include? "kwestiasmaku.com"
       @recipe=KwestiaSmakuDownloader.new(url).przepis
-    elsif url.include? "tesco.pl"
-      @recipe=TescoDownloader.new(url).przepis
-
+    elsif url.include? "codogara.pl"
+      @recipe=CodogaraDownloader.new(url).przepis
     end
+
     @recipe.category_id=params[:recipe][:category_id]
 
     respond_to do |format|

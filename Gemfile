@@ -27,6 +27,7 @@ gem "omniauth-google-oauth2"
 gem 'rollbar', '~> 2.4.0'
 gem 'oj', '~> 2.12.14'
 gem 'rails-i18n', '~> 4.0.0' # For 4.0.x
+gem 'fuubar'
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 # Use ActiveModel has_secure_password
@@ -59,4 +60,3 @@ group :production do
   gem "pg"
   gem "thin"
 end
-

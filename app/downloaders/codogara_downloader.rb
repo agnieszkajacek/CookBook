@@ -12,25 +12,7 @@ class CodogaraDownloader
     @skladniki = page.css('div.ingredients.right ul').inner_html
   end
 
-  def tytul
-    @tytul
-  end
-
-  def skladniki
-    @skladniki
-  end
-
-  def opis
-    @opis
-    end
-
-  def url
-    @url
-  end
-
-  def obrazek
-    @obrazek
-  end
+  attr_reader :tytul, :skladniki, :opis, :url, :obrazek
 
   def przepis
     Recipe.new(title: tytul, ingredients: skladniki, description: opis, url: url, image: obrazek)

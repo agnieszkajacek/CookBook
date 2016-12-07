@@ -2,15 +2,13 @@
   <% if @recipe.errors.any? %>
     <div id="error_explanation">
       <h2>Przepis został już dodany</h2>
-
       <ul>
-      <% @recipe.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @recipe.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
-
   <div class="row">
     <div class="form-group col-xs-4">
       Adres:
@@ -19,12 +17,11 @@
   </div>
   <div class="row">
     <div class="form-group col-xs-4">
-    Kategoria:
+      Kategoria:
        <%= f.select :category_id, Category.order("name").collect { |p| [ p.name, p.id ] }, {include_blank: false}, class: 'form-control' %>
     </div>
   </div>
-
-    <div class="actions">
-      <%= f.submit "Utwórz przepis", class: 'btn btn-default' %>
-    </div>
+  <div class="actions">
+    <%= f.submit "Utwórz przepis", class: 'btn btn-default' %>
+  </div>
 <% end %>

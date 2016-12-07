@@ -13,29 +13,17 @@ class KwestiaSmakuDownloader
     @skladniki = page.css('div.field.field-name-field-skladniki.field-type-text-long.field-label-hidden').inner_html
   end
 
-  def tytul
-    @tytul
-  end
+  attr_reader :tytul, :skladniki, :opis, :url, :obrazek
 
-  def skladniki
-    @skladniki
-  end
+  attr_reader :skladniki
 
-  def opis
-    @opis
-  end
+  attr_reader :opis
 
-  def url
-    @url
-  end
+  attr_reader :url
 
-  def obrazek
-    @obrazek
-  end
+  attr_reader :obrazek
 
   def przepis
     Recipe.new(title: tytul, ingredients: skladniki, description: opis, url: url, image: obrazek)
   end
 end
-
-

@@ -1,5 +1,3 @@
-
-
 <p>
   <h1><%= @recipe.title %></h1>
 </p>
@@ -9,27 +7,22 @@
   </div>
 </div>
 <div class="row">
-	<div class="col-md-4 skladniki">
-		<%= simple_format @recipe.ingredients %>
-	</div>
-	<div class="col-md-8">
-		<%=image_tag @recipe.image %>
-	</div>
+  <div class="col-md-4 skladniki">
+    <%= simple_format @recipe.ingredients %>
+  </div>
+  <div class="col-md-8">
+    <%=image_tag @recipe.image %>
+  </div>
 </div>
 <hr>
-<h2>Przygotowanie</h2><br />
+<h2>Przygotowanie</h2>
+<br />
 <div class="tresc-przepisu">
   <%= simple_format(@recipe.description) %>
 </div>
-
 <p>
   <strong>Autor:</strong>
   <%= link_to @recipe.url, @recipe.url, target:"_blank" %>
 </p>
-
-
 <a class="hidden-print btn btn-default" href="#" onclick="window.print();return false;">Drukuj przepis</a>
-
 <%= link_to 'Wróć', recipes_path, :class => 'btn btn-default' %>
-
-

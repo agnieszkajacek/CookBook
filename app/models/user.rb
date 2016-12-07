@@ -5,21 +5,19 @@ class User < ActiveRecord::Base
   has_many :providers
   has_many :recipes, through: :favourites
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook, :github, :google_oauth2]
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook, :github, :google_oauth2]
 
-
-	def self.from_omniauth(auth)
-    
+  def self.from_omniauth(auth)
     provider = Provider.where(uid: auth.uid, name: auth.provider).first
-    
-    if provider 
+
+    if provider
       user = provider.user
-    else 
+    else
       user = User.where(email: auth.info.email).first_or_initialize
     end
 
-    if not user.persisted?
-      user.password = Devise.friendly_token[0,20] 
+    unless user.persisted?
+      user.password = Devise.friendly_token[0, 20]
       user.email = auth.info.email
     end
 

@@ -1,0 +1,64 @@
+en:
+  devise:
+    passwords:
+      user:
+        send_instructions: 'Na podany adres wysłano link adres z przypomnieniem hasła'
+        updated: 'The password has been changed'
+    omniauth_callbacks:
+      user:
+        success: 'Logged correctly'
+        failure: 'Couldn't log correctly'
+    registrations:
+      user:
+        signed_up: 'Registered correctly'
+        signed_in: 'Logged correctly'
+        destroyed: 'The account has been deleted'
+        updated: 'Settings has been correctly changed'
+    failure:
+      unauthenticated: 'You must log in or register before continuing'
+      unconfirmed: 'You need to confirm your account before continuing.'
+      locked: 'Your account is locked'
+      invalid: 'Account or email is invalid'
+      invalid_token: 'Invalid authentication token'
+      timeout: 'Your session has expired, log back in to continue'
+      inactive: 'Your account has not been activated yet'
+    sessions:
+      signed_in: 'Logged correctly'
+      signed_out: 'Logged out correctly'
+
+  views:
+    pagination:
+      previous: 'Previous'
+      next: 'Next'
+      last: 'Last'
+      first: 'Fist'
+
+  activerecord:
+    models:
+      user: 'User'
+    attributes:
+      recipe:
+        title: 'Title'
+      user:
+        password: 'Password'
+        password_confirmation: 'Password Confirmation'
+        current_password: 'Current Password'
+
+
+  helpers:
+    label:
+      user:
+        email: 'E-mail'
+        password: 'Password'
+        password_confirmation: 'Password Confirmation'
+        current_password: 'Current Password'
+        remember_me: 'Rember me'
+
+  submit:
+    user:
+      create: 'Register'
+      update: 'Change settings'
+
+  errors:
+    messages:
+      not_saved: 'Incorrect settings'

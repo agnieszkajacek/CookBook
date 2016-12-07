@@ -26,7 +26,7 @@ module CookBook
       port:           587,
       authentication: :plain,
       user_name:      'apikey',
-      password:       "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"
+      password:       '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'
     }
 
     # Do not swallow errors in after_commit/after_rollback callbacks.

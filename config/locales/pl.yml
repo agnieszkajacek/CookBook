@@ -2,18 +2,18 @@ pl:
   devise:
     passwords:
       user:
-        send_instructions: "Na podany adres wysłano link adres z przypomnieniem hasła"
-        updated: "Hasło zostało zmienione"
+        send_instructions: 'Na podany adres wysłano link adres z przypomnieniem hasła'
+        updated: 'Hasło zostało zmienione'
     omniauth_callbacks:
       user:
-        success: "Zalogowano poprawnie"
-        failure: "Nie udało się zalogować"
+        success: 'Zalogowano poprawnie'
+        failure: 'Nie udało się zalogować'
     registrations:
       user:
-        signed_up: "Zarejestrowano poprawnie"
-        signed_in: "Zalogowano poprawnie"
-        destroyed: "Usunięto konto"
-        updated: "Dane zostały poprawnie zmienione"
+        signed_up: 'Zarejestrowano poprawnie'
+        signed_in: 'Zalogowano poprawnie'
+        destroyed: 'Usunięto konto'
+        updated: 'Dane zostały poprawnie zmienione'
     failure:
       unauthenticated: 'Musisz się zalogować lub zarejestrować się przed kontynuowaniem.'
       unconfirmed: 'Musisz potwierdzić swoje konto przed kontynuowaniem.'
@@ -23,46 +23,42 @@ pl:
       timeout: 'Twoja sesja wygasła, zaloguj się ponownie, aby kontynuować.'
       inactive: 'Twoje konto nie zostało jeszcze aktywowane.'
     sessions:
-      signed_in: "Zalogowano poprawnie"
-      signed_out: "Wylogowano poprawnie"
+      signed_in: 'Zalogowano poprawnie'
+      signed_out: 'Wylogowano poprawnie'
 
   views:
     pagination:
-      previous: "Poprzednia"
-      next: "Następna"
-      last: "Ostatnia"
-      first: "Pierwsza"
+      previous: 'Poprzednia'
+      next: 'Następna'
+      last: 'Ostatnia'
+      first: 'Pierwsza'
 
   activerecord:
     models:
-      user: "Użytkownik"
+      user: 'Użytkownik'
     attributes:
       recipe:
-        title: "Pole tytuł"
+        title: 'Pole tytuł'
       user:
-        password: "Hasło"
-        password_confirmation: "Pole potwierdzające hasło"
-        current_password: "Aktualne hasło"
+        password: 'Hasło'
+        password_confirmation: 'Pole potwierdzające hasło'
+        current_password: 'Aktualne hasło'
 
 
   helpers:
     label:
       user:
-        email: "Twój e-mail"
-        password: "Hasło"
-        password_confirmation: "Potwierdź hasło"
-        current_password: "Aktualne hasło"
-        remember_me: "Zapamiętaj mnie"
+        email: 'Twój e-mail'
+        password: 'Hasło'
+        password_confirmation: 'Potwierdź hasło'
+        current_password: 'Aktualne hasło'
+        remember_me: 'Zapamiętaj mnie'
 
   submit:
     user:
-      create: "Zarejestruj"
-      update: "Zmień dane"
+      create: 'Zarejestruj'
+      update: 'Zmień dane'
 
   errors:
     messages:
-      not_saved: "Wprowadzono błędne dane"
-
-
-
-
+      not_saved: 'Wprowadzono błędne dane'
